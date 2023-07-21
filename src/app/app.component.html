@@ -6,9 +6,10 @@
     <div class="container">
         <header>Receipt Generator</header>
         <form id = "myForm">
+
+
                 <div class="details personal">
                     <span class="title">Personal Details</span>
-
                     <div class="fields">
                         <div class="input-field">
                             <label>Full Name</label>
@@ -24,66 +25,77 @@
                           <label>Address</label>
                           <input name="myAddress" type="text" placeholder="Enter your address" [(ngModel)]="address">
                         </div>
+                    </div>
+                </div>
 
-                        <div class="input-field">
-                          <label>Amount Donated</label>
-                          <input name="myAmount" type="number" placeholder="Enter amount donated" [(ngModel)]="amount">
-                        </div>
 
-                        <div class="input-field">
-                          <label>Payment Mode</label>
-                          <select name="myPaymentMode" [(ngModel)]="paymentMode" >
-                              <option disabled selected>Select mode</option>
-                              <option>Online Payment</option>
-                              <option>Cash</option>
-                              <option>Cheque</option>
-                          </select>
-                      </div>
 
-                        <div class="input-field">
-                          <label>Date of Payment</label>
-                          <input name="myPaymentDate" type="date" placeholder="Enter payment date" [(ngModel)]="paymentDate">
-                        </div>
-
-                        <div class="input-field">
-                          <label>Purpose of Contribution</label>
-                          <select name="myPurposeOfContribution" [(ngModel)]="purposeOfContribution" >
-                              <!-- <option>Select purpose</option> -->
-                              <option>Registration Fee</option>
-                              <option>Annual Contribution</option>
-                              <option>Donation</option>
-                              <option>Advertisement</option>
-                          </select>
-                        </div>
-                    
-                        <div class="input-field">
-                          <label>Receipt Number</label>
-                          <input name="myReceiptNumber" type="text" placeholder="Enter receipt number" [(ngModel)]="receiptNumber">
-                        </div>
-
-                        <div class="input-field">
-                          <label>Date of Receipt</label>
-                          <input name="myInvoiceDate" type="date" placeholder="Enter invoice date" [(ngModel)]="invoiceDate">
-                        </div>
-
-                        <div class="input-field">
-                          <label>Transaction ID</label>
-                          <input name="myTransactionID" type="text" placeholder="Enter Transaction ID" [(ngModel)]="transactionID">
-                        </div>
-
+                <div class="details id">
+                  <span class="title">Payment Details</span>                  
+                  <div class="fields">
+                  <div class="input-field">
+                    <label>Amount Donated</label>
+                    <input name="myAmount" type="number" placeholder="Enter amount donated" [(ngModel)]="amount">
                   </div>
 
+                  <div class="input-field">
+                    <label>Payment Mode</label>
+                    <select name="myPaymentMode" [(ngModel)]="paymentMode" >
+                        <!-- <option disabled selected>Select mode</option> -->
+                        <option>Online Payment</option>
+                        <option>Cash</option>
+                        <option>Cheque</option>
+                    </select>
+                  </div>
+
+                  <div class="input-field">
+                    <label>Date of Payment</label>
+                    <input name="myPaymentDate" type="date" placeholder="Enter payment date" [(ngModel)]="paymentDate">
+                  </div>
+
+                  <div class="input-field">
+                    <label>Transaction ID</label>
+                    <input name="myTransactionID" type="text" placeholder="Enter Transaction ID" [(ngModel)]="transactionID">
+                  </div>
               
+                  <div class="input-field">
+                    <label>Receipt Number</label>
+                    <input name="myReceiptNumber" type="text" placeholder="Enter receipt number" [(ngModel)]="receiptNumber">
+                  </div>
 
+                  <div class="input-field">
+                    <label>Date of Receipt</label>
+                    <input name="myInvoiceDate" type="date" placeholder="Enter invoice date" [(ngModel)]="invoiceDate">
+                  </div>
 
-                    <div class="buttons">
-                      <button id = "submit_btn" class="submit" (click)="generatePDF()">
-                          <span id = "btn_content" class="btnText">Download Receipt</span>
-                          <i class="uil uil-file-download-alt"></i>
-                      </button>
-                    </div>
-
+                  
                 </div>
+                </div>
+                
+
+                <div class="details id">
+                  <span class="title">Other Details</span>
+                  <div class="fields">
+                  <div class="input-field">
+                    <label>Purpose of Contribution</label>
+                    <select name="myPurposeOfContribution" [(ngModel)]="purposeOfContribution" >
+                        <!-- <option>Select purpose</option> -->
+                        <option>Registration Fee</option>
+                        <option>Annual Contribution</option>
+                        <option>Donation</option>
+                        <option>Advertisement</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="buttons">
+                  <button id = "submit_btn" class="submit" (click)="generatePDF()">
+                      <span id = "btn_content" class="btnText">Download Receipt</span>
+                      <i class="uil uil-file-download-alt"></i>
+                  </button>
+                </div>
+                </div>
+
         </form>
     </div>
 </body>
