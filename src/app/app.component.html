@@ -1,4 +1,75 @@
-<div>
+<!-- <div>
   Click here to generate PDF: <button (click)="generatePDF()">Generate PDF</button>
-</div>
+</div> -->
 
+<body>    
+    <div class="container">
+        <header>Generate Receipt</header>
+        <form id = "myForm">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input name="myName" type="text" placeholder="Enter your name" [(ngModel)]="userName">
+                        </div>
+
+                  
+                        <div class="input-field">
+                          <label>Mobile Number</label>
+                          <input name="myMobileNumber" type="number" placeholder="Enter mobile number" [(ngModel)]="mobileNumber">
+                        </div>
+                        
+
+                        <div class="input-field">
+                          <label>Address</label>
+                          <input name="myAddress" type="text" placeholder="Enter your address" [(ngModel)]="address">
+                        </div>
+
+                        <!-- <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" placeholder="Enter your email">
+                        </div> -->
+
+                        
+
+                        <!-- <div class="input-field">
+                            <label>Gender</label>
+                            <select>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div> -->
+
+                        <div class="input-field">
+                          <label>Amount Donated</label>
+                          <input name="myAmount" type="number" placeholder="Enter amount donated" [(ngModel)]="amount">
+                        </div>
+
+                        <div class="input-field">
+                          <label>Date of Payment</label>
+                          <input name="myPaymentDate" type="date" placeholder="Enter payment date" [(ngModel)]="paymentDate">
+                        </div>
+
+                      <div class="input-field">
+                        <label>Date of Invoice</label>
+                        <input name="myInvoiceDate" type="date" placeholder="Enter invoice date" [(ngModel)]="invoiceDate">
+                      </div>
+                    </div>
+
+
+                    <div class="buttons">
+                      <button id = "submit_btn" class="submit" (click)="generatePDF()">
+                          <span id = "btn_content" class="btnText">Download Receipt</span>
+                          <i class="uil uil-file-download-alt"></i>
+                      </button>
+                    </div>
+
+                </div>
+        </form>
+    </div>
+</body>
+ 
