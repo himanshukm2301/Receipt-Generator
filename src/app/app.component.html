@@ -4,7 +4,7 @@
 
 <body>    
     <div class="container">
-        <header>Generate Receipt</header>
+        <header>Receipt Generator</header>
         <form id = "myForm">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
@@ -14,28 +14,16 @@
                             <label>Full Name</label>
                             <input name="myName" type="text" placeholder="Enter your name" [(ngModel)]="userName">
                         </div>
-
-                  
+     
                         <div class="input-field">
                           <label>Mobile Number</label>
                           <input name="myMobileNumber" type="number" placeholder="Enter mobile number" [(ngModel)]="mobileNumber">
-                        </div>
-                        
+                        </div>              
 
                         <div class="input-field">
                           <label>Address</label>
                           <input name="myAddress" type="text" placeholder="Enter your address" [(ngModel)]="address">
                         </div>
-
-                        <!-- <div class="input-field">
-                            <label>Gender</label>
-                            <select>
-                                <option disabled selected>Select gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Others</option>
-                            </select>
-                        </div> -->
 
                         <div class="input-field">
                           <label>Amount Donated</label>
@@ -43,22 +31,49 @@
                         </div>
 
                         <div class="input-field">
+                          <label>Payment Mode</label>
+                          <select name="myPaymentMode" [(ngModel)]="paymentMode" >
+                              <option disabled selected>Select mode</option>
+                              <option>Online Payment</option>
+                              <option>Cash</option>
+                              <option>Cheque</option>
+                          </select>
+                      </div>
+
+                        <div class="input-field">
                           <label>Date of Payment</label>
                           <input name="myPaymentDate" type="date" placeholder="Enter payment date" [(ngModel)]="paymentDate">
                         </div>
 
                         <div class="input-field">
-                          <label>Date of Invoice</label>
+                          <label>Purpose of Contribution</label>
+                          <select name="myPurposeOfContribution" [(ngModel)]="purposeOfContribution" >
+                              <!-- <option>Select purpose</option> -->
+                              <option>Registration Fee</option>
+                              <option>Annual Contribution</option>
+                              <option>Donation</option>
+                              <option>Advertisement</option>
+                          </select>
+                        </div>
+                    
+                        <div class="input-field">
+                          <label>Receipt Number</label>
+                          <input name="myReceiptNumber" type="text" placeholder="Enter receipt number" [(ngModel)]="receiptNumber">
+                        </div>
+
+                        <div class="input-field">
+                          <label>Date of Receipt</label>
                           <input name="myInvoiceDate" type="date" placeholder="Enter invoice date" [(ngModel)]="invoiceDate">
                         </div>
 
                         <div class="input-field">
-                          <label>Receipt Number</label>
-                          <input name="myReceiptNumber" type="text" placeholder="Enter receipt number" [(ngModel)]="receiptNumber">
-                      </div>
+                          <label>Transaction ID</label>
+                          <input name="myTransactionID" type="text" placeholder="Enter Transaction ID" [(ngModel)]="transactionID">
+                        </div>
+
                   </div>
 
-                    
+              
 
 
                     <div class="buttons">
