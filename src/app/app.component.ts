@@ -18,6 +18,7 @@ export class AppComponent {
   paymentMode: string = '';
   purposeOfContribution: string = '';
   transactionID: number = 0;
+  salutation: string = '';
 
   amountInWords: string = '';
 
@@ -40,6 +41,7 @@ export class AppComponent {
     console.log('purposeOfContribution:', this.purposeOfContribution);
 
     console.log('transactionID:', this.transactionID);
+    console.log('salutation:', this.salutation);
     
 
     var props = {
@@ -122,12 +124,19 @@ export class AppComponent {
               // "Donation",
               `
 
-Received with thanks from Mr./Mrs./Ms ${this.userName} Rupees (in words) ${this.amountInWords} only By ${this.paymentMode} 
+Received with thanks from ${this.salutation} ${this.userName}, a generous monetary contribution of Rupees (in words) 
 
-dated ${this.paymentDate} with Transaction ID: ${this.transactionID} on account of ${this.purposeOfContribution}.
+${this.amountInWords} only By ${this.paymentMode} dated ${this.paymentDate} with Transaction ID: ${this.transactionID} on account of 
+
+${this.purposeOfContribution}.
 
 
-AMOUNT PAID: Rs ${this.amount}                                                                                            Treasurer Sign: Arun Kumar Mishra`,
+
+AMOUNT: Rs ${this.amount}/-                                                                                                             Maithil Samanvay Foundation
+                                                                                                                                                                SD/-
+                                                                                                                                                          Treasurer
+                                                                                                                                       
+`  ,
               // this.amount,
               // 1,
               // "m2",

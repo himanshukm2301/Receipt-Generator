@@ -11,6 +11,18 @@
                 <div class="details personal">
                     <span class="title">Personal Details</span>
                     <div class="fields">
+
+                      <div class="input-field">
+                        <label>Receipient's Salutation</label>
+                        <select name="mySalutation" [(ngModel)]="salutation" >
+                            <option>Shree</option>
+                            <option>Shreemati</option>
+                            <option>Mr.</option>
+                            <option>Mrs.</option>
+                            <option>Ms.</option>
+                        </select>
+                      </div>
+
                         <div class="input-field">
                             <label>Full Name</label>
                             <input name="myName" type="text" placeholder="Enter your name" [(ngModel)]="userName">
@@ -21,13 +33,39 @@
                           <input name="myMobileNumber" type="number" placeholder="Enter mobile number" [(ngModel)]="mobileNumber">
                         </div>              
 
-                        <div class="input-field">
-                          <label>Address</label>
-                          <input name="myAddress" type="text" placeholder="Enter your address" [(ngModel)]="address">
-                        </div>
+                        
                     </div>
                 </div>
 
+                <div class="details id">
+                  <span class="title">Other Details</span>
+                  <div class="fields">
+
+                    <div class="input-field">
+                      <label>Address</label>
+                      <input name="myAddress" type="text" placeholder="Enter your address" [(ngModel)]="address">
+                    </div>
+
+                  <div class="input-field">
+                    <label>Purpose of Contribution</label>
+                    <select name="myPurposeOfContribution" [(ngModel)]="purposeOfContribution" >
+                        <!-- <option>Select purpose</option> -->
+                        <option>Registration Fee</option>
+                        <option>Annual Contribution</option>
+                        <option>Donation</option>
+                        <option>Advertisement</option>
+                    </select>
+                  </div>
+
+                  <div class="input-field">
+                    <label>Treasurer</label>
+                    <select name="myTreasurer" >
+                        <option>Arun Kumar Mishra</option>
+                    </select>
+                  </div>
+
+                </div>
+                </div>
 
 
                 <div class="details id">
@@ -71,29 +109,13 @@
                   
                 </div>
                 </div>
-                
 
-                <div class="details id">
-                  <span class="title">Other Details</span>
-                  <div class="fields">
-                  <div class="input-field">
-                    <label>Purpose of Contribution</label>
-                    <select name="myPurposeOfContribution" [(ngModel)]="purposeOfContribution" >
-                        <!-- <option>Select purpose</option> -->
-                        <option>Registration Fee</option>
-                        <option>Annual Contribution</option>
-                        <option>Donation</option>
-                        <option>Advertisement</option>
-                    </select>
-                  </div>
-                </div>
 
                 <div class="buttons">
                   <button id = "submit_btn" class="submit" (click)="generatePDF()">
                       <span id = "btn_content" class="btnText">Download Receipt</span>
                       <i class="uil uil-file-download-alt"></i>
                   </button>
-                </div>
                 </div>
 
         </form>
