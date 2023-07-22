@@ -122,7 +122,9 @@ export class AppComponent {
               // "Donation",
               `
 
-Received with thanks from Mr./Mrs./Ms ${this.userName} Rupees (in words) ${this.amountInWords} only By ${this.paymentMode} dated ${this.paymentDate} with Transaction ID: ${this.transactionID} on account of ${this.purposeOfContribution}.
+Received with thanks from Mr./Mrs./Ms ${this.userName} Rupees (in words) ${this.amountInWords} only By ${this.paymentMode} 
+
+dated ${this.paymentDate} with Transaction ID: ${this.transactionID} on account of ${this.purposeOfContribution}.
 
 
 AMOUNT PAID: Rs ${this.amount}                                                                                            Treasurer Sign: Arun Kumar Mishra`,
