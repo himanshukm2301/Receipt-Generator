@@ -26,22 +26,22 @@ export class AppComponent {
 
     this.amountInWords = this.numberToWords(this.amount);
     // console.log(this.amountInWords);
-    console.log('generatePDF() called');
+    // console.log('generatePDF() called');
 
-    console.log('userName:', this.userName);
-    console.log('mobileNumber:', this.mobileNumber);
-    console.log('address:', this.address);
+    // console.log('userName:', this.userName);
+    // console.log('mobileNumber:', this.mobileNumber);
+    // console.log('address:', this.address);
 
-    console.log('amount:', this.amount);
-    console.log('paymentDate:', this.paymentDate);
-    console.log('invoiceDate:', this.invoiceDate);
+    // console.log('amount:', this.amount);
+    // console.log('paymentDate:', this.paymentDate);
+    // console.log('invoiceDate:', this.invoiceDate);
 
-    console.log('receiptNumber:', this.receiptNumber);
-    console.log('paymentMode:', this.paymentMode);
-    console.log('purposeOfContribution:', this.purposeOfContribution);
+    // console.log('receiptNumber:', this.receiptNumber);
+    // console.log('paymentMode:', this.paymentMode);
+    // console.log('purposeOfContribution:', this.purposeOfContribution);
 
-    console.log('transactionID:', this.transactionID);
-    console.log('salutation:', this.salutation);
+    // console.log('transactionID:', this.transactionID);
+    // console.log('salutation:', this.salutation);
     
 
     var props = {
@@ -167,9 +167,6 @@ BRANCH NAME: Nizampura, Vadodara
     console.log('pdfObject', pdfObject);
   }
 
-
-
-
   numberToWords(num: number): string {
     let arr = new Map();
      arr.set(1000000000, "Billion");
@@ -244,28 +241,9 @@ BRANCH NAME: Nizampura, Vadodara
          }
      }
      return res.trim();
- }
+  }
 
-
-
+  parseData() {
+    console.log('parseData() called');
+  }
 }
-
-//Cash donation of Rs ${this.amount} made on ${this.paymentDate} by ${this.userName} to the Maithil Samaj Foundation
-
-/**
- * Dear Mr./Ms. ${this.userName},
-
-On behalf of the Mithila Samaj, I would like to express our sincere gratitude for your generous donation of Rs ${this.amount} on ${this.paymentDate}. Your donation will help us continue our mission to preserve and promote the rich culture and heritage of Mithila.
-
-We are grateful for your support and we look forward to continuing to work with you to build a stronger and more vibrant Mithila community.     
-`
- */
-
-
-/*
-`
-
-Received with thanks from Mr./Mrs./Ms ${this.userName} Rupees (in words) ${this.amountInWords} only By ${this.paymentMode} dated ${this.paymentDate} with Transaction ID: ${this.transactionID} on account of ${this.purposeOfContribution}.
-
-
-AMOUNT PAID: Rs ${this.amount}                                                                                            Treasurer Sign: Arun Kumar Mishra` */
