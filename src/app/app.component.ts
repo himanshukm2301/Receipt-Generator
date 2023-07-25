@@ -243,7 +243,39 @@ BRANCH NAME: Nizampura, Vadodara
      return res.trim();
   }
 
-  parseData() {
+  clickChooseFile() {
     console.log('parseData() called');
+
+    const realFileBtn =  document.getElementById("actual-btn");
+    const customBtn = document.getElementById("custom-btn");
+    const customTxt = document.getElementById("custom-text");
+
+    console.log('customBtn', customBtn);
+    console.log('realFileBtn', realFileBtn);
+
+    customBtn?.addEventListener("click", function() {
+      // @ts-ignore
+      realFileBtn.click();
+    });
+
+    realFileBtn?.addEventListener("change", function() {
+      // @ts-ignore
+      if (realFileBtn.value) {
+        // @ts-ignore
+        customTxt.innerHTML = realFileBtn.value.match(/[\\\\\\]([\w\d\s\.\-\(\)]+)$/)[1];
+      } else {
+        // @ts-ignore
+        customTxt.innerHTML = "No file chosen, yet.";
+      }
+    });
+
+    const fileInput = document.getElementById('actual-btn');
+    // @ts-ignore
+    fileInput.onchange = () => {
+      // @ts-ignore
+      const selectedFile = fileInput.files[0];
+      console.log(selectedFile);
+    }
+
   }
 }

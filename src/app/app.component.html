@@ -117,10 +117,13 @@
                       <i class="uil uil-file-download-alt"></i>
                   </button>
 
-                  <button id = "submit_btn" class="submit" (click)="parseData()">
-                    <span id = "btn_content" class="btnText">Upload Data</span>
+                 
+                  <input type="file" id="actual-btn" hidden/>
+                  <button id = "custom-btn" (click)="clickChooseFile()">
+                    <span class="btnText">Upload Data</span>
                     <i class="uil uil-upload"></i>
                   </button>
+                  <span id = "custom-text" class="btnText">No file chosen</span>
                 </div>
 
         </form>
