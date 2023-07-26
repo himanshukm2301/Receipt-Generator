@@ -158,7 +158,7 @@ BRANCH NAME: Nizampura, Vadodara
           `,
       },
       footer: {
-          text: "The invoice is created on a computer and is valid without the signature and stamp.",
+          text: "The receipt is created on a computer and is valid without the signature and stamp.",
       },
       pageEnable: true,
       pageLabel: "Page",
