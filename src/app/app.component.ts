@@ -91,7 +91,7 @@ export class AppComponent {
           // otherInfo: "www.myportfolio.co.in",
       },
       invoice: {
-          label: "Receipt No.: ",
+          label: "Receipt No: ",
           num: this.receiptNumber,
           invDate: `Payment Date: ${this.paymentDate}`,
           invGenDate: `Receipt Date: ${this.invoiceDate}`,
@@ -126,7 +126,7 @@ export class AppComponent {
               // "Donation",
               `
 
-Received with thanks from ${this.salutation} ${this.userName}, a generous monetary contribution of Rupees (in words) 
+Received with Thanks from ${this.salutation} ${this.userName}, a generous monetary contribution of Rupees (in words) 
 
 ${this.amountInWords} only By ${this.paymentMode} dated ${this.paymentDate} with Transaction ID: ${this.transactionID} on account of 
 
@@ -285,23 +285,40 @@ BRANCH NAME: Nizampura, Vadodara
     // console.log('parsed excel data: ', data);
     // console.log('parsed excel data: ', data[1]['Amount']);
 
-    for(let row = 8; row < 11; row++){
+    for(let row = 8; row < 8; row++){
       this.userName = data[row]['Name'];
       this.amount = data[row]['Amount'];
       this.mobileNumber = data[row]['Mobile Number'];
       this.address = data[row]['Address'];
-      this.paymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']);
-      this.invoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']);
+      // this.paymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']);
+      // this.invoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']);
+      this.paymentDate = '2020-July-12';
+      this.invoiceDate = '2020-July-12';
       this.receiptNumber = data[row]['Receipt Number'];
       this.paymentMode = data[row]['Payment Mode'];
       this.purposeOfContribution = data[row]['Purpose of Contribution'];
       this.transactionID = data[row]['Transaction ID'];
       this.salutation = data[row]['Salutation'];
 
-      if(this.amount === undefined) continue;
+      // console.log('userName:', this.userName);
+      // console.log('amount:', this.amount);
+      // console.log('mobileNumber:', this.mobileNumber);
+      // console.log('address:', this.address);
+      // console.log('paymentDate:', this.paymentDate);
+      // console.log('invoiceDate:', this.invoiceDate);
+      // console.log('receiptNumber:', this.receiptNumber);
+      // console.log('paymentMode:', this.paymentMode);
+      // console.log('purposeOfContribution:', this.purposeOfContribution);
+      // console.log('transactionID:', this.transactionID);
+      // console.log('salutation:', this.salutation);
+
+      if(this.amount === undefined) {
+        // console.log('amount unspecified in row:', row);
+        continue;
+      };
 
       this.generatePDF();
-      console.log('generated invoice for:', row);
+      // console.log('generated invoice for:', row);
     }
   }
 
