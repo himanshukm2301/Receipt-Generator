@@ -118,7 +118,11 @@
                   </button>
 
                  
-                  <input type="file" id="actual-btn" hidden/>
+                  <input type="file" id="actual-btn" 
+                  appReadexcel
+                  #readexcel="readexcel"
+                  (eventEmitter)="DataFromEventEmitter($event)"
+                  hidden/>
                   <button id = "custom-btn" (click)="clickChooseFile()">
                     <span class="btnText">Upload Data</span>
                     <i class="uil uil-upload"></i>

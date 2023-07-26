@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import jsPDFInvoiceTemplate, { OutputType, jsPDF } from "jspdf-invoice-template";
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-root',
@@ -278,4 +279,37 @@ BRANCH NAME: Nizampura, Vadodara
     }
 
   }
+
+  DataFromEventEmitter(data: any) {
+    console.log(data[0]);
+    console.log(data[0]['NAME']);
+    const date = this.ExcelDateToJSDate(data[0]['PAYMENT DATE']);
+    // console.log(data[0]['PAYMENT DATE']);
+    console.log(date);
+  }
+
+  ExcelDateToJSDate(serial: number) {
+    var utc_days  = Math.floor(serial - 25569);
+    var utc_value = utc_days * 86400;                                        
+    var date_info = new Date(utc_value * 1000);
+ 
+    var fractional_day = serial - Math.floor(serial) + 0.0000001;
+ 
+    var total_seconds = Math.floor(86400 * fractional_day);
+ 
+    var seconds = total_seconds % 60;
+ 
+    total_seconds -= seconds;
+ 
+    var hours = Math.floor(total_seconds / (60 * 60));
+    var minutes = Math.floor(total_seconds / 60) % 60;
+ 
+    var fullDate = new Date(date_info.getFullYear(), date_info.getMonth(), date_info.getDate(), hours, minutes, seconds);
+    // console.log('full date', fullDate);
+
+    // split  based on whitespace, then get except the first element and then join again
+    var cropDate = fullDate.toDateString().split(' ').slice(1).join(' ');
+    // console.log('crop date', cropDate)
+    return cropDate;
+ }
 }
