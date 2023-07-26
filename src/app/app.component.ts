@@ -292,8 +292,8 @@ BRANCH NAME: Nizampura, Vadodara
       this.address = data[row]['Address'];
       // this.paymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']);
       // this.invoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']);
-      this.paymentDate = '2020-July-12';
-      this.invoiceDate = '2020-July-12';
+      this.paymentDate = '2020-12-12';
+      this.invoiceDate = '2020-12-12';
       this.receiptNumber = data[row]['Receipt Number'];
       this.paymentMode = data[row]['Payment Mode'];
       this.purposeOfContribution = data[row]['Purpose of Contribution'];
