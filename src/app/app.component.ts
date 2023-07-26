@@ -9,6 +9,7 @@ import * as XLSX from 'xlsx';
 })
 export class AppComponent {
   title = 'rg-app';
+
   userName: string = 'Himanshu Kumar Mishra';
   amount: number = 100;
   mobileNumber:number = 7984575158;
@@ -165,7 +166,7 @@ BRANCH NAME: Nizampura, Vadodara
 
     var pdfObject = jsPDFInvoiceTemplate(props) //returns number of pages created
 
-    console.log('pdfObject', pdfObject);
+    // console.log('pdfObject', pdfObject);
   }
 
   numberToWords(num: number): string {
@@ -245,14 +246,14 @@ BRANCH NAME: Nizampura, Vadodara
   }
 
   clickChooseFile() {
-    console.log('parseData() called');
+    // console.log('parseData() called');
 
     const realFileBtn =  document.getElementById("actual-btn");
     const customBtn = document.getElementById("custom-btn");
     const customTxt = document.getElementById("custom-text");
 
-    console.log('customBtn', customBtn);
-    console.log('realFileBtn', realFileBtn);
+    // console.log('customBtn', customBtn);
+    // console.log('realFileBtn', realFileBtn);
 
     customBtn?.addEventListener("click", function() {
       // @ts-ignore
@@ -275,17 +276,33 @@ BRANCH NAME: Nizampura, Vadodara
     fileInput.onchange = () => {
       // @ts-ignore
       const selectedFile = fileInput.files[0];
-      console.log(selectedFile);
+      // console.log(selectedFile);
     }
 
   }
 
   DataFromEventEmitter(data: any) {
-    console.log(data[0]);
-    console.log(data[0]['NAME']);
-    const date = this.ExcelDateToJSDate(data[0]['PAYMENT DATE']);
-    // console.log(data[0]['PAYMENT DATE']);
-    console.log(date);
+    // console.log('parsed excel data: ', data);
+    // console.log('parsed excel data: ', data[1]['Amount']);
+
+    for(let row = 8; row < 11; row++){
+      this.userName = data[row]['Name'];
+      this.amount = data[row]['Amount'];
+      this.mobileNumber = data[row]['Mobile Number'];
+      this.address = data[row]['Address'];
+      this.paymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']);
+      this.invoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']);
+      this.receiptNumber = data[row]['Receipt Number'];
+      this.paymentMode = data[row]['Payment Mode'];
+      this.purposeOfContribution = data[row]['Purpose of Contribution'];
+      this.transactionID = data[row]['Transaction ID'];
+      this.salutation = data[row]['Salutation'];
+
+      if(this.amount === undefined) continue;
+
+      this.generatePDF();
+      console.log('generated invoice for:', row);
+    }
   }
 
   ExcelDateToJSDate(serial: number) {
