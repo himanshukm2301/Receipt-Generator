@@ -295,8 +295,8 @@ BRANCH NAME: Nizampura, Vadodara
       this.amount = data[row]['Amount'];
       this.mobileNumber = data[row]['Mobile Number'];
       this.address = data[row]['Address'];
-      this.paymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']).toString();
-      this.invoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']).toString();
+      this.paymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']);
+      this.invoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']);
       // this.paymentDate = '2020-11-11';
       // this.invoiceDate = '2020-11-11';
       this.receiptNumber = data[row]['Receipt Number'];
@@ -347,9 +347,23 @@ BRANCH NAME: Nizampura, Vadodara
     let fullDate = new Date(date_info.getFullYear(), date_info.getMonth(), date_info.getDate(), hours, minutes, seconds);
     // console.log('full date', fullDate);
 
+    
+    let combinedDate = fullDate.getDate().toString() + ' ' + this.findMonthInWords(fullDate) + ' '+ fullDate.getFullYear().toString();
+    // console.log(combinedDate);
+    return combinedDate;
     // split  based on whitespace, then get except the first element and then join again
-    let cropDate = fullDate.toDateString().split(' ').slice(1).join(' ');
+    // let cropDate = fullDate.toDateString().split(' ').slice(1).join(' ');
     // console.log('crop date', cropDate)
-    return cropDate;
+    // return cropDate;
+ }
+
+ findMonthInWords(fullDate: Date){
+  let month = fullDate.getMonth();
+  let monthNames = [
+    "Jan", "Feb", "Mar", "Apr", "May", "June",
+    "July", "Aug", "Sept", "Oct", "Nov", "Decr"
+  ];
+  // console.log(monthNames[month]);
+  return monthNames[month];
  }
 }
