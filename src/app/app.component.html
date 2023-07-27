@@ -14,7 +14,8 @@
 
                       <div class="input-field">
                         <label>Receipient's Salutation</label>
-                        <select name="mySalutation" [(ngModel)]="salutation" >
+                        <select name="mySalutation" [(ngModel)]="salutation">
+                            <option disabled selected>Select Salutation</option>
                             <option>Shree</option>
                             <option>Shreemati</option>
                             <option>Mr.</option>
@@ -49,7 +50,7 @@
                   <div class="input-field">
                     <label>Purpose of Contribution</label>
                     <select name="myPurposeOfContribution" [(ngModel)]="purposeOfContribution" >
-                        <!-- <option>Select purpose</option> -->
+                        <option disabled selected>Select Purpose</option>
                         <option>Registration Fee</option>
                         <option>Annual Contribution</option>
                         <option>Donation</option>
@@ -79,7 +80,7 @@
                   <div class="input-field">
                     <label>Payment Mode</label>
                     <select name="myPaymentMode" [(ngModel)]="paymentMode" >
-                        <!-- <option disabled selected>Select mode</option> -->
+                        <option disabled selected>Select Payment Mode</option>
                         <option>Online Payment</option>
                         <option>Cash</option>
                         <option>Cheque</option>

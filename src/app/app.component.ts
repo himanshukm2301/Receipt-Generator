@@ -10,16 +10,21 @@ import * as XLSX from 'xlsx';
 export class AppComponent {
   title = 'rg-app';
 
-  userName: string = 'Himanshu Kumar Mishra';
-  amount: number = 100;
-  mobileNumber:number = 7984575158;
+  userName: string = '';
+  // @ts-ignore
+  amount: number;
+  // @ts-ignore
+  mobileNumber:number;
   address: string = 'Vadodara, Gujarat';
-  paymentDate: string = '21/07/2023';
-  invoiceDate: string = '21/07/2023';
-  receiptNumber: number = 56;
+  paymentDate: string = '';
+  invoiceDate: string = '';
+  // @ts-ignore
+  receiptNumber: number;
   paymentMode: string = '';
   purposeOfContribution: string = '';
-  transactionID: number = 0;
+  // @ts-ignore
+  transactionID: number;
+  // @ts-ignore
   salutation: string = '';
 
   amountInWords: string = '';
@@ -281,19 +286,19 @@ BRANCH NAME: Nizampura, Vadodara
 
   }
 
-  DataFromEventEmitter(data: any) {
+  async DataFromEventEmitter(data: any) {
     // console.log('parsed excel data: ', data);
     // console.log('parsed excel data: ', data[1]['Amount']);
 
-    for(let row = 8; row < 8; row++){
+    for(let row = 0; row < data.length; row++){
       this.userName = data[row]['Name'];
       this.amount = data[row]['Amount'];
       this.mobileNumber = data[row]['Mobile Number'];
       this.address = data[row]['Address'];
-      // this.paymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']);
-      // this.invoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']);
-      this.paymentDate = '2020-12-12';
-      this.invoiceDate = '2020-12-12';
+      this.paymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']).toString();
+      this.invoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']).toString();
+      // this.paymentDate = '2020-11-11';
+      // this.invoiceDate = '2020-11-11';
       this.receiptNumber = data[row]['Receipt Number'];
       this.paymentMode = data[row]['Payment Mode'];
       this.purposeOfContribution = data[row]['Purpose of Contribution'];
@@ -318,6 +323,7 @@ BRANCH NAME: Nizampura, Vadodara
       };
 
       this.generatePDF();
+      await new Promise((resolve) => setTimeout(resolve,0));
       // console.log('generated invoice for:', row);
     }
   }
@@ -338,11 +344,11 @@ BRANCH NAME: Nizampura, Vadodara
     var hours = Math.floor(total_seconds / (60 * 60));
     var minutes = Math.floor(total_seconds / 60) % 60;
  
-    var fullDate = new Date(date_info.getFullYear(), date_info.getMonth(), date_info.getDate(), hours, minutes, seconds);
+    let fullDate = new Date(date_info.getFullYear(), date_info.getMonth(), date_info.getDate(), hours, minutes, seconds);
     // console.log('full date', fullDate);
 
     // split  based on whitespace, then get except the first element and then join again
-    var cropDate = fullDate.toDateString().split(' ').slice(1).join(' ');
+    let cropDate = fullDate.toDateString().split(' ').slice(1).join(' ');
     // console.log('crop date', cropDate)
     return cropDate;
  }
