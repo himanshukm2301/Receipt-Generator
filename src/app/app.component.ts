@@ -60,7 +60,7 @@ export class AppComponent {
     var props = {
       outputType: OutputType.Save,
       returnJsPDFDocObject: true,
-      fileName: "Invoice 2021",
+      fileName: `${this.userName}'s Receipt`,
       orientationLandscape: false,
       compress: true,
       logo: {
