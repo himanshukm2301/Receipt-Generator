@@ -89,7 +89,7 @@
 
                   <div class="input-field">
                     <label>Date of Payment</label>
-                    <input name="myPaymentDate" type="date" placeholder="Enter payment date" [(ngModel)]="paymentDate">
+                    <input name="myPaymentDate" type="date" placeholder="Enter payment date" [(ngModel)]="paymentDate" (ngModelChange)="onPaymentDateChange()">
                   </div>
 
                   <div class="input-field">
@@ -104,7 +104,7 @@
 
                   <div class="input-field">
                     <label>Date of Receipt</label>
-                    <input name="myInvoiceDate" type="date" placeholder="Enter invoice date" [(ngModel)]="invoiceDate">
+                    <input name="myInvoiceDate" type="date" placeholder="Enter invoice date" [(ngModel)]="invoiceDate" (ngModelChange)="onReceiptDateChange()">
                   </div>
 
                   

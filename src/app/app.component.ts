@@ -16,8 +16,14 @@ export class AppComponent {
   // @ts-ignore
   mobileNumber:number;
   address: string = 'Vadodara, Gujarat';
-  paymentDate: string = '';
-  invoiceDate: string = '';
+  // @ts-ignore
+  paymentDate: string;
+  // @ts-ignore
+  invoiceDate: string;
+  // @ts-ignore
+  formattedPaymentDate: string;
+  // @ts-ignore
+  formattedInvoiceDate: string;
   // @ts-ignore
   receiptNumber: number;
   paymentMode: string = '';
@@ -98,8 +104,8 @@ export class AppComponent {
       invoice: {
           label: "Receipt No: ",
           num: this.receiptNumber,
-          invDate: `Payment Date: ${this.paymentDate}`,
-          invGenDate: `Receipt Date: ${this.invoiceDate}`,
+          invDate: `Payment Date: ${this.formattedPaymentDate}`,
+          invGenDate: `Receipt Date: ${this.formattedInvoiceDate}`,
           headerBorder: true,
           tableBodyBorder: false,
           header: [
@@ -131,11 +137,11 @@ export class AppComponent {
               // "Donation",
               `
 
-Received with Thanks from ${this.salutation} ${this.userName}, a generous monetary contribution of Rupees (in words) 
+Received with Thanks from ${this.salutation} ${this.userName}, a generous contribution of Rupees (in words) 
 
-${this.amountInWords} only By ${this.paymentMode} dated ${this.paymentDate} with Transaction ID: ${this.transactionID} on account of 
+${this.amountInWords} only By ${this.paymentMode} dated ${this.formattedPaymentDate} with Transaction ID: ${this.transactionID} on account 
 
-${this.purposeOfContribution}.
+of ${this.purposeOfContribution}.
 
 
 
@@ -295,8 +301,8 @@ BRANCH NAME: Nizampura, Vadodara
       this.amount = data[row]['Amount'];
       this.mobileNumber = data[row]['Mobile Number'];
       this.address = data[row]['Address'];
-      this.paymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']);
-      this.invoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']);
+      this.formattedPaymentDate = this.ExcelDateToJSDate(data[row]['Payment Date']);
+      this.formattedInvoiceDate = this.ExcelDateToJSDate(data[row]['Invoice Date']);
       // this.paymentDate = '2020-11-11';
       // this.invoiceDate = '2020-11-11';
       this.receiptNumber = data[row]['Receipt Number'];
@@ -365,5 +371,29 @@ BRANCH NAME: Nizampura, Vadodara
   ];
   // console.log(monthNames[month]);
   return monthNames[month];
+ }
+
+ onPaymentDateChange(){
+  //console.log('onPaymentDateChange() called');
+    // Convert the input date to "dd-MM-yyyy" format
+    // console.log('this.paymentDate', this.paymentDate);
+    if (this.paymentDate) {
+      const date = new Date(this.paymentDate);
+      const day = date.getDate().toString().padStart(2, '0');
+      const month = this.findMonthInWords(date).padStart(2, '0');
+      const year = date.getFullYear();
+      this.formattedPaymentDate = `${day} ${month} ${year}`;
+    }
+    // console.log('this.paymentDate 2', this.paymentDate);
+ }
+
+ onReceiptDateChange(){
+    if (this.invoiceDate) {
+      const date = new Date(this.invoiceDate);
+      const day = date.getDate().toString().padStart(2, '0');
+      const month = this.findMonthInWords(date).padStart(2, '0');
+      const year = date.getFullYear();
+      this.formattedInvoiceDate = `${day} ${month} ${year}`;
+    }
  }
 }
